@@ -1,5 +1,4 @@
 /***
-
         using simple javascript
 
         const heading = document.createElement("h1");
@@ -12,13 +11,9 @@
 
 // using react js
 
-const heading = React.createElement(
-  "h1",
-  { id: "Heading" },
-  "This is a heading"
-);
-console.log(heading);
+const parent = React.createElement("div", {}, [
+  React.createElement("h1", {}, "I am a heading 1"),
+  React.createElement("h1", {}, "I am a heading 2"),
+]);
 const root = ReactDOM.createRoot(document.getElementById("root"));
-console.log(root);
-root.render(heading);
-console.log(root);
+root.render(parent);
