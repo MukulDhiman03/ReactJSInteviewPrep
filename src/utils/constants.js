@@ -1,8 +1,4 @@
-import react from "react";
-import ReactDOM from "react-dom/client";
-import "./index.css";
-
-const resObj = [
+export const resObj = [
   {
     info: {
       id: "115753",
@@ -1515,74 +1511,3 @@ const resObj = [
     },
   },
 ];
-
-const Header = () => {
-  return (
-    <div className="header">
-      <div className="logo-container">
-        <img
-          className="logo"
-          src="https://images-platform.99static.com/v84irzbNBd5aawXGKXfH4SEjcn0=/0x0:960x960/500x500/top/smart/99designs-contests-attachments/117/117132/attachment_117132760"
-          alt="Food Logo"
-        />
-      </div>
-      <div className="nav-items">
-        <ul>
-          <li>Home</li>
-          <li>About Us</li>
-          <li>Contact Us</li>
-          <li>Cart</li>
-        </ul>
-      </div>
-    </div>
-  );
-};
-
-const RestaurantCard = (props) => {
-  console.log("props", props.resData.info);
-  let data = props.resData.info;
-  console.log(data);
-  return (
-    <div className="res-card" style={{ backgroundColor: "#f0f0f0" }}>
-      <img
-        className="res-logo"
-        src={
-          "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" +
-          data.cloudinaryImageId
-        }
-        alt="food-logo"
-      />
-      <h3>{data.name}</h3>
-      <h4>{data?.cuisines?.join(" , ")}</h4>
-      <h4>{data.totalRatingsString}</h4>
-      <h4>38 Mins</h4>
-    </div>
-  );
-};
-
-const Body = () => {
-  return (
-    <div className="body">
-      <div className="search">Search</div>
-
-      <div className="res-container">
-        {/* <RestaurantCard resData={resObj[1]} /> */}
-        {resObj.map((res) => {
-          return <RestaurantCard resData={res} key={res.info.id} />;
-        })}
-      </div>
-    </div>
-  );
-};
-
-const AppLayout = () => {
-  return (
-    <div className="app">
-      <Header />
-      <Body />
-    </div>
-  );
-};
-
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<AppLayout />);
