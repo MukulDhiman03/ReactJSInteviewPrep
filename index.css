@@ -15,7 +15,7 @@
 }
 
 .nav-items {
-    padding: 25px 0px;
+    padding: 25px 25px;
 }
 
 .nav-items>ul {
@@ -54,7 +54,30 @@
     height: 50%;
 }
 
+.filter {
+    display: flex;
+}
+
 .filter-btn {
     margin: 10px;
     cursor: pointer;
+}
+
+.shimmer-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.shimmer-cards {
+    width: 200px;
+    height: 200px;
+    background-color: #f0f0f0;
+    margin: 20px;
+}
+
+.login-btn {
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 10px;
+    border: none;
 }
