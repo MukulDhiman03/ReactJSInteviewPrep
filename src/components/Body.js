@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from "react";
 import RestaurantCard from "./RestaurantCard";
 
+// named import
 import { resObj } from "../utils/constants";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
 
 const Body = () => {
   // whenever a state variable is change , react re renders the components.
+  // always create a state variable inside the function only that too on the top only
+  // never create a state varaible inside if else or for loop
   const [allRestaurantData, setAllRestaurantData] = useState([]);
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
   const [searchInput, setSearchInput] = useState("");
@@ -82,7 +86,15 @@ const Body = () => {
       <div className="res-container">
         {/* <RestaurantCard resData={resObj[1]} /> */}
         {listOfRestaurants.map((res) => {
-          return <RestaurantCard resData={res} key={res.info.id} />;
+          return (
+            <Link
+              to={"/restaurants/" + res.info.id}
+              key={res.info.id}
+              className="custom-link"
+            >
+              <RestaurantCard resData={res} />
+            </Link>
+          );
         })}
       </div>
     </div>

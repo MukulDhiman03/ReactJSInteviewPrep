@@ -1,4 +1,17 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
+// anchor tag reload the whole page but not React Link tag(SPA)
+/*
+
+2 types of routing in web app
+
+client side routing
+ browser has all the pages on the client side only 
+
+server side routing
+ make a network call and the page is coming from server
+
+*/
 
 const Header = () => {
   const [isLogin, setIsLogin] = useState(false);
@@ -13,9 +26,15 @@ const Header = () => {
       </div>
       <div className="nav-items">
         <ul>
-          <li>Home</li>
-          <li>About Us</li>
-          <li>Contact Us</li>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/about">About Us</Link>
+          </li>
+          <li>
+            <Link to="/contact">Contact Us</Link>
+          </li>
           <li>Cart</li>
           <button
             className="login-btn"
