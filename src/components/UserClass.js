@@ -23,7 +23,7 @@ class UserClass extends React.Component {
   }
 
   render() {
-    const { name, location } = this.props;
+    const { name, location, avatar_url } = this.props;
     const { count, count2 } = this.state;
     console.log("Child Render");
 
@@ -44,6 +44,7 @@ class UserClass extends React.Component {
         <h2>Name:{name}</h2>
         <h3>{location}</h3>
         <h4>Contact: @mukuldhiman7</h4>
+        <img src={avatar_url} />
       </div>
     );
   }
