@@ -5,7 +5,7 @@ import RestaurantCard from "./RestaurantCard";
 import { resObj } from "../utils/constants";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
-
+import useOnlineStatus from "../utils/useOnlineStatus";
 const Body = () => {
   // whenever a state variable is change , react re renders the components.
   // always create a state variable inside the function only that too on the top only
@@ -33,6 +33,11 @@ const Body = () => {
       json?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
   };
+
+  let onlineStatus = useOnlineStatus();
+  if (!onlineStatus) {
+    return <h1>Looks like you are offline</h1>;
+  }
 
   if (listOfRestaurants.length === 0) {
     console.log("LEngth is ", listOfRestaurants);
