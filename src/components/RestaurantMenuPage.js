@@ -16,18 +16,22 @@ const RestaurantMenuPage = () => {
       ?.itemCards;
 
   return (
-    <div className="menu-container">
+    <div className="mt-4 p-4">
       {console.log("restaurantInfo", restaurantInfo)}
       {console.log("dataToIterate", dataToIterate)}
-      <h1>{restaurantName}</h1>
-      <div className="menus">
+      <h1 className="text-center font-bold text-3xl">{restaurantName}</h1>
+      <div className="menus flex ">
         {dataToIterate.map((item, index) => {
           {
             /* console.log("Item is ", item); */
           }
           return (
-            <div key={index + 1} className="menu-container-card">
+            <div
+              key={index + 1}
+              className="p-4 m-4 border rounded-lg hover:bg-gray-50"
+            >
               <img
+                className="border rounded-lg "
                 src={
                   "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_300,h_300,c_fit/" +
                   item?.card?.info?.imageId

@@ -40,21 +40,21 @@ const Body = () => {
   }
 
   if (listOfRestaurants.length === 0) {
-    console.log("LEngth is ", listOfRestaurants);
+    console.log("Length is ", listOfRestaurants);
     return <Shimmer />;
   }
   return (
     <div className="body">
-      <div className="filter">
-        <div className="search">
+      <div className="p-2 m-2 flex">
+        <div className="mx-2">
           <input
             type="text"
-            className="search-box"
+            className="border-2"
             value={searchInput}
             onChange={(e) => setSearchInput(e.target.value)}
           />
           <button
-            className="search-btn"
+            className="mx-2 bg-gray-200 border rounded-lg px-2 hover:bg-gray-400"
             onClick={() => {
               console.log("allRestaurantData ", allRestaurantData);
               let filterData = allRestaurantData.filter((res) => {
@@ -70,7 +70,7 @@ const Body = () => {
           </button>
         </div>
         <button
-          className="filter-btn"
+          className="mx-2 bg-gray-200 border rounded-lg px-2 hover:bg-gray-400"
           onClick={() => {
             setListOfRestaurants(
               allRestaurantData.filter((res) => res.info.totalRatingsString > 4)
@@ -80,7 +80,7 @@ const Body = () => {
           Top rated restaurants
         </button>
         <button
-          className="filter-btn"
+          className="mx-2 bg-gray-200 border rounded-lg px-2 hover:bg-gray-400"
           onClick={() => {
             setListOfRestaurants(resObj);
             setSearchInput("");
@@ -90,7 +90,7 @@ const Body = () => {
         </button>
       </div>
 
-      <div className="res-container">
+      <div className="flex flex-wrap">
         {/* <RestaurantCard resData={resObj[1]} /> */}
         {listOfRestaurants.map((res) => {
           return (
