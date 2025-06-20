@@ -1,9 +1,8 @@
 import React from "react";
 
 const RestaurantCard = (props) => {
-  console.log("props", props.resData.info);
+  console.log("Props ", props);
   let data = props.resData.info;
-  console.log("data is ", data);
   return (
     <div className="bg-gray-100 w-56 p-4 border rounded-lg mx-4 hover:bg-gray-200">
       <img
@@ -20,6 +19,23 @@ const RestaurantCard = (props) => {
       <h4 className="text-lg m-2">38 Mins</h4>
     </div>
   );
+};
+
+// Higher Order Component
+// takes input - RestaurantCard
+// output - RestaurantCard Promoted
+
+export const withPromotedLabel = (RestaurantCard) => {
+  return (props) => {
+    return (
+      <div>
+        <label className="absolute bg-black text-white p-2 m-2 rounded-lg">
+          Discount
+        </label>
+        <RestaurantCard {...props} />
+      </div>
+    );
+  };
 };
 
 export default RestaurantCard;

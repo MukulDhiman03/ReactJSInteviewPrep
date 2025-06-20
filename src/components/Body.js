@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard, { withPromotedLabel } from "./RestaurantCard";
 
 // named import
 import { resObj } from "../utils/constants";
@@ -13,7 +13,8 @@ const Body = () => {
   const [allRestaurantData, setAllRestaurantData] = useState([]);
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
   const [searchInput, setSearchInput] = useState("");
-  console.log("Body rendered");
+
+  const RestaurantCardPromoted = withPromotedLabel(RestaurantCard);
 
   useEffect(() => {
     console.log("Render");
@@ -33,6 +34,7 @@ const Body = () => {
       json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
   };
+  console.log("listOfRestaurants ", listOfRestaurants);
 
   let onlineStatus = useOnlineStatus();
   if (!onlineStatus) {
@@ -40,7 +42,6 @@ const Body = () => {
   }
 
   if (listOfRestaurants.length === 0) {
-    console.log("Length is ", listOfRestaurants);
     return <Shimmer />;
   }
   return (
@@ -56,7 +57,7 @@ const Body = () => {
           <button
             className="mx-2 bg-gray-200 border rounded-lg px-2 hover:bg-gray-400"
             onClick={() => {
-              console.log("allRestaurantData ", allRestaurantData);
+              // console.log("allRestaurantData ", allRestaurantData);
               let filterData = allRestaurantData.filter((res) => {
                 return res.info.name
                   .toLowerCase()
@@ -99,6 +100,12 @@ const Body = () => {
               key={res.info.id}
               className="custom-link"
             >
+              {console.log(res)}
+              {/* {res.info.aggregatedDiscountInfoV3.header ? (
+                <RestaurantCardPromoted resData={res} />
+              ) : (
+                <RestaurantCard resData={res} />
+              )} */}
               <RestaurantCard resData={res} />
             </Link>
           );

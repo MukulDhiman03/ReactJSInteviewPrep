@@ -17,18 +17,13 @@ const RestaurantMenuPage = () => {
 
   return (
     <div className="mt-4 p-4">
-      {console.log("restaurantInfo", restaurantInfo)}
-      {console.log("dataToIterate", dataToIterate)}
       <h1 className="text-center font-bold text-3xl">{restaurantName}</h1>
-      <div className="menus flex ">
+      <div className="menus flex flex-wrap ">
         {dataToIterate.map((item, index) => {
-          {
-            /* console.log("Item is ", item); */
-          }
           return (
             <div
               key={index + 1}
-              className="p-4 m-4 border rounded-lg hover:bg-gray-50"
+              className="p-4 m-4 border rounded-lg hover:bg-gray-50 w-[20%]"
             >
               <img
                 className="border rounded-lg "
@@ -44,9 +39,6 @@ const RestaurantMenuPage = () => {
                 {item?.card?.info?.category}
               </h2>
               <p>{item?.card?.info?.ratings?.aggregatedRating?.rating}</p>
-              {/* {item?.card?.info?.addons?.map((addon) => {
-              console.log("Addon", addon);
-            })} */}
             </div>
           );
         })}
