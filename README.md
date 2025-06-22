@@ -250,3 +250,133 @@ root.render(<RouterProvider router={appRouter} />);
 
         server side routing
             make a network call and the page is coming from server
+
+# Ep-06 Let's gets classy
+
+A classComponent is a normal javascript class.
+
+```js
+class UserClass extends React.Component {
+  render() {
+    return <div></div>;
+  }
+}
+
+export default UserClass;
+```
+
+```js
+class UserClass extends React.Component {
+  constructor(props) {
+    super(props);
+    console.log(props);
+  }
+  render() {
+    return <div></div>;
+  }
+}
+export default UserClass;
+```
+
+React.Component is the parent class.
+
+Whenever an instance of the class is created the constructor is called.
+
+The Necessity of super():
+
+- super() essentially calls the constructor of the parent class (React.Component in this case).
+
+Why super(props)?
+
+- The React.Component constructor (which super() calls) is responsible for setting up the component's this.props property.
+
+- By passing props to super(), you are ensuring that the props passed to your UserClass component are correctly initialized and made available as this.props within your component's constructor and throughout its lifecycle methods.
+
+```js
+class UserClass extends React.Component {
+  constructor(props) {
+    super(); // Call parent constructor without props
+    console.log(this.props); // This would be undefined here in the constructor
+  }
+  render() {
+    return <div>{this.props.someProp}</div>; // This would work correctly here
+  }
+}
+```
+
+## How to create state inside a class component?
+
+        this.state={
+        state1:val,
+        state2:val
+        }
+
+```js
+constructor() {
+    super();
+    this.state = {
+      count: 0,
+      count2: 1,
+    };
+}
+```
+
+## How to use state inside a class component?
+
+        this.setState({
+            this.state.state1:this.state.state1+1.
+            this.state.state2:this.state.state2+1.
+        })
+
+```js
+<h1>count:{this.state.count}</h1>
+<button
+    onClick={() => {
+    this.setState({
+        this.state.count: this.state.count + 1,
+        this.state.count2: this.state.count2 + 1,
+     });
+ }}
+>
+Count Increase
+</button>
+```
+
+## Life cycle of class based components.
+
+- Phele parent class ka constructor call hoga phir render call hoga parent class ka then child class ka constructor call hoga then render call hogas child class ka.
+
+        Parent Cons. => Parent render => Child Cons. => Child renders
+
+- If a single class has Cons, render()s and ComponentDidMount().
+
+        Cons => render => Component didmount
+
+- Parent and child relationship
+
+        Parent Cons => parent render => chid const => child render => cild ComponentDidMount => parent ComponentDidMount
+
+## ComponentDidMount()
+
+- To make an API call
+- api call, it will re render the component
+
+        - Parent Cons
+        - Parent render
+            First Child Cons
+            First Child render
+
+            Second Child Cons
+            Second Child render
+
+            First Child componentDidMount
+            Seond Child componentDidMount
+        - Parent componentDidMount
+
+## componentDidUpdate()
+
+- componentDidUpdate is a lifecycle method in React class components that is invoked immediately after a component's updates are flushed to the DOM.
+
+## componentWillUnmount()
+
+- It is invoked immediately before a component is unmounted and destroyed.

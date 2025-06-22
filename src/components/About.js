@@ -39,7 +39,7 @@ class About extends Component {
   render() {
     const { login, avatar_url } = this.state.userInfo;
     return (
-      <div>
+      <div>s
         <h1>About</h1>
         <p>This is namaste food live about page.</p>
         {/* <User name={"Mukul Dhiman"} /> */}
