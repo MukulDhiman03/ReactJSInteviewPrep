@@ -134,3 +134,7 @@ JSX is HTML like syntax.
 JS engine only understand Javascript .It does not understand the JSX or react. So parcel transpiled the React code so that browser can understand it. Parcel wit help of babel does the transpilation.
 
     JSX ===> React.createlement() ===> Object ===> HTMLElement(render)
+
+# Ep-04 Talk is cheap, show me the code
+
+    not using keys(not acceptable) <<<< index as a key <<<<< unique id(best practice)
