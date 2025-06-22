@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 // anchor tag reload the whole page but not React Link tag(SPA)
+
 /*
 
 2 types of routing in web app

@@ -138,3 +138,41 @@ JS engine only understand Javascript .It does not understand the JSX or react. S
 # Ep-04 Talk is cheap, show me the code
 
     not using keys(not acceptable) <<<< index as a key <<<<< unique id(best practice)
+
+# Ep-05 Let's get Hooked
+
+There are two types of Export/Import
+
+- Default Export/Import
+
+        export default component;
+        import Component from "path";
+
+- Named Export/Import
+
+        export const Component;
+        import {Component} from "path";
+
+## Hooks
+
+- A hook is just a normal javascript function.
+- There are multiple react hooks.
+- 2 very imp hooks useState() , useEffect()
+- useState() -> to manage states
+- useEffect() -> to manage side effects like api calls, subscriptions , timers ,mutations and more.
+
+**Whenever a state variable updates react re-render the component .It does it very fast.**
+
+**React makes DOM operations very fast, this is where react is best than Angular and Vue**
+
+**React uses re-conciliation algo (React Fiber)**
+
+```
+React creates a virtual dom of the UI.
+Virtual DOM is a representation of the actual DOM.
+Virtual DOM is an object.
+
+Diff algorithm finds out the difference between the vitual dom and the previous virtual dom.
+```
+
+**Always create a state variable inside the function only that too on the top only never create a state varaible inside if else or for loop.**
