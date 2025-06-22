@@ -1,9 +1,12 @@
 <h1 style="text-align: center">React Js Notes</h1>
+React is a library .
+
+Main difference between library and framework is that library takes minimum efforts to put in to the code.
 
 # Emmets
 
     Set of shortcuts.
-    To Speed up the process of writing code.
+    Use to Speed up the process of writing code.
 
 # CDN(Content Delivery Network)
 
@@ -64,12 +67,16 @@ Webpack , parcel and vite are bundlers
 
 This will install node_modules and package-lock.json in the app.
 
+If we remove package.json them we cannot genretae the node_modules, because package.json is the core file that defines project metadata.
+
+If we remove package-lock.json we can generate the node_modules, but it will lead to inconsistent installations.
+
 **-D means dev dependency, required during development.**
 We will install parcel as a dev dependency.
 
-**^** upgrades to minor versions(Carrot)
+**^** allows updates to minor and patch versions(Carrot)
 
-**~** upgrades to major versions(Tilde)
+**~** allows updates to the patch version only(Tilde)
 
 **major.minor.patch**
 
@@ -128,8 +135,16 @@ Aapko is folder ko delete karne ki zaroorat nahi hoti agar aapko build-related i
 
     React.createlement() ===> Object ===> HTMLElement(render)
 
+Browser does not understand the react , so babel convert the react code into relable format (ES6) for the browser to understand.
+
 JSX is not HTML inside JS.
 JSX is HTML like syntax.
+
+JSX prevents injection attacks.
+
+JSX does code sanitization as well.
+
+If we write a component inside other component that is known as component composition.
 
 JS engine only understand Javascript .It does not understand the JSX or react. So parcel transpiled the React code so that browser can understand it. Parcel wit help of babel does the transpilation.
 
@@ -161,7 +176,7 @@ There are two types of Export/Import
 - useState() -> to manage states
 - useEffect() -> to manage side effects like api calls, subscriptions , timers ,mutations and more.
 
-**Whenever a state variable updates react re-render the component .It does it very fast.**
+**Whenever a state variable gets updated, react re-render the component .It does it very fast.**
 
 **React makes DOM operations very fast, this is where react is best than Angular and Vue**
 
@@ -187,13 +202,13 @@ Diff algorithm finds out the difference between the vitual dom and the previous 
     },[dependency array])
 ```
 
-- Every time after rendering of the component, but dependency array changes the behavious of useEffect()
+- It runs every time after rendering of the component, but dependency array changes the behavious of useEffect().
 
 - If no dependency array , that means useEffect() call on every render.
 
 - If empty dependency array , then it gets call on initial render and just for once.
 
-- If dependency array has something , then it will call when the state in dependency gets change.
+- If dependency array has something , then it will call after the initial render and when the state mentioned in dependency gets change.
 
 ```js
 <div className="app">
