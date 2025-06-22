@@ -251,7 +251,7 @@ root.render(<RouterProvider router={appRouter} />);
         server side routing
             make a network call and the page is coming from server
 
-# Ep-06 Let's gets classy
+# Ep-08 Lets'get Classy
 
 A classComponent is a normal javascript class.
 
@@ -380,3 +380,53 @@ Count Increase
 ## componentWillUnmount()
 
 - It is invoked immediately before a component is unmounted and destroyed.
+
+# Ep-09 Optimizing our app
+
+- We can create our own custom hook .
+
+```js
+import { useEffect, useState } from "react";
+
+const useOnlineStatus = () => {
+  const [onlineStatus, setOnlineStatus] = useState(true);
+  useEffect(() => {
+    window.addEventListener("offline", (event) => {
+      console.log("You are now connected to the network.");
+      setOnlineStatus(false);
+    });
+    window.addEventListener("online", (event) => {
+      console.log("You are now connected to the network.");
+      setOnlineStatus(false);
+    });
+  }, []);
+
+  return onlineStatus;
+};
+
+export default useOnlineStatus;
+```
+
+## Lazy Loading
+
+- Chunking
+- Code Splitting
+- Lazy Loading
+- Dynamic Bundling
+- Hur componenet ka alag se bundle buna rhe hai
+- only when we will go to grocery page then only that component code will get load into the browser(On demand loading).
+
+```js
+
+const About = lazy(() => import("./components/About"));
+
+{
+    path: "/about",
+    element: (
+    <Suspense fallback={<h1>Loading.............</h1>}>
+      <About />
+    </Suspense>
+  ),
+},
+
+```
