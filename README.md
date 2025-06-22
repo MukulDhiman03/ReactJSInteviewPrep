@@ -71,8 +71,10 @@ We will install parcel as a dev dependency.
 
 **~** upgrades to major versions(Tilde)
 
+**major.minor.patch**
+
 package-lock.json -> tells the exact verison of the package installed.
-package.json -> conatains ~ and ^ .
+package.json -> conatains ~ and ^ . and meta data of the application
 
     npx parcel index.html
     npx install react
@@ -121,3 +123,14 @@ Aapko is folder ko delete karne ki zaroorat nahi hoti agar aapko build-related i
         npx parcel build index.html
 
 - The above command is for prod build
+
+# Ep-03 Laying the foundation
+
+    React.createlement() ===> Object ===> HTMLElement(render)
+
+JSX is not HTML inside JS.
+JSX is HTML like syntax.
+
+JS engine only understand Javascript .It does not understand the JSX or react. So parcel transpiled the React code so that browser can understand it. Parcel wit help of babel does the transpilation.
+
+    JSX ===> React.createlement() ===> Object ===> HTMLElement(render)
