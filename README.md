@@ -176,3 +176,62 @@ Diff algorithm finds out the difference between the vitual dom and the previous 
 ```
 
 **Always create a state variable inside the function only that too on the top only never create a state varaible inside if else or for loop.**
+
+# Ep-06 Finding the path
+
+## useEffect()
+
+```js
+    useEffect(()=>{
+        // callback function
+    },[dependency array])
+```
+
+- Every time after rendering of the component, but dependency array changes the behavious of useEffect()
+
+- If no dependency array , that means useEffect() call on every render.
+
+- If empty dependency array , then it gets call on initial render and just for once.
+
+- If dependency array has something , then it will call when the state in dependency gets change.
+
+```js
+<div className="app">
+  <Header />
+  <Outlet />
+</div>;
+
+const appRouter = createBrowserRouter([
+  {
+    path: "/",
+    element: <AppLayout />,
+    children: [
+      {
+        path: "/",
+        element: <Body />,
+      },
+      {
+        path: "/contact",
+        element: <Contact />,
+      },
+      {
+        path: "/restaurants/:resId",
+        element: <RestaurantMenuPage />,
+      },
+    ],
+    errorElement: <Error />,
+  },
+]);
+
+root.render(<RouterProvider router={appRouter} />);
+```
+
+- Anchor tag reload the whole page but not React Link tag(SPA)
+
+        2 types of routing in web app
+
+        client side routing
+            browser has all the pages on the client side only
+
+        server side routing
+            make a network call and the page is coming from server
