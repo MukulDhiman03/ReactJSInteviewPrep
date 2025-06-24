@@ -430,3 +430,11 @@ const About = lazy(() => import("./components/About"));
 },
 
 ```
+
+# Ep-10 Data is the new oil
+
+## Higher order component
+
+A component takes an component as an input and enhances it and retutn.
+
+Lifting the state up

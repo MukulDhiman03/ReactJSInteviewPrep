@@ -23,7 +23,7 @@ const Body = () => {
 
   const fetchData = async () => {
     const data = await fetch(
-      "https://raw.githubusercontent.com/namastedev/namaste-react/refs/heads/main/swiggy-api"
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=29.8542626&lng=77.8880002&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
     const json = await data.json();
     console.log("Data is ", json);
@@ -114,5 +114,4 @@ const Body = () => {
     </div>
   );
 };
-
 export default Body;
