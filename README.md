@@ -438,3 +438,6 @@ const About = lazy(() => import("./components/About"));
 A component takes an component as an input and enhances it and retutn.
 
 Lifting the state up
+
+Controlled component-> if the states are controlled by parent component(via props) then the child component is controlled component.
+Unontrolled component-> if the states are controlled by component only then the component is controlled component.
