@@ -5,6 +5,7 @@
 // first constructor is called then render
 
 import React from "react";
+import UserContext from "../utils/UserContext";
 
 class UserClass extends React.Component {
   constructor(props) {
@@ -30,6 +31,14 @@ class UserClass extends React.Component {
     return (
       <div className="user-card">
         <h1>count:{count}</h1>
+        <div>
+          LoggedIn User-
+          <span className="px-4 bg-black rounded text-white p-2">
+            <UserContext.Consumer>
+              {(data) => data.loggedInUser}
+            </UserContext.Consumer>
+          </span>
+        </div>
         <button
           onClick={() => {
             this.setState({

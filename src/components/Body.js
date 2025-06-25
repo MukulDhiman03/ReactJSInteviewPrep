@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import RestaurantCard, { withPromotedLabel } from "./RestaurantCard";
 
 // named import
@@ -6,6 +6,8 @@ import { resObj } from "../utils/constants";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "../utils/UserContext";
+
 const Body = () => {
   // whenever a state variable is change , react re renders the components.
   // always create a state variable inside the function only that too on the top only
@@ -13,6 +15,8 @@ const Body = () => {
   const [allRestaurantData, setAllRestaurantData] = useState([]);
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
   const [searchInput, setSearchInput] = useState("");
+
+  const { setUserName, loggedInUser } = useContext(UserContext);
 
   const RestaurantCardPromoted = withPromotedLabel(RestaurantCard);
 
@@ -28,10 +32,10 @@ const Body = () => {
     const json = await data.json();
     console.log("Data is ", json);
     setListOfRestaurants(
-      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      json?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
     setAllRestaurantData(
-      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      json?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
   };
   console.log("listOfRestaurants ", listOfRestaurants);
@@ -80,6 +84,16 @@ const Body = () => {
         >
           Top rated restaurants
         </button>
+        <div className="mx-2">
+          UserName:
+          <input
+            className="border-2"
+            type="text"
+            placeholder="Enter a username"
+            value={loggedInUser}
+            onChange={(e) => setUserName(e.target.value)}
+          />
+        </div>
         <button
           className="mx-2 bg-gray-200 border rounded-lg px-2 hover:bg-gray-400"
           onClick={() => {

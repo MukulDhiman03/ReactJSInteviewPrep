@@ -1,4 +1,4 @@
-import react, { lazy, Suspense } from "react";
+import react, { lazy, Suspense, useState } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
@@ -8,6 +8,7 @@ import "../index.css";
 import Contact from "./components/Contact";
 import Error from "./components/Error";
 import RestaurantMenuPage from "./components/RestaurantMenuPage";
+import UserContext from "./utils/UserContext";
 // import Grocery from "./components/Grocery";
 
 // Chunking
@@ -21,11 +22,16 @@ const Grocery = lazy(() => import("./components/Grocery"));
 const About = lazy(() => import("./components/About"));
 
 const AppLayout = () => {
+  const [userName, setUserName] = useState("Spiderman");
   return (
-    <div className="app">
-      <Header />
-      <Outlet />
-    </div>
+    <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
+      <div className="app">
+        {/* <UserContext.Provider value={{ loggedInUser: "Spiderman" }}> */}
+        <Header />
+        {/* </UserContext.Provider> */}
+        <Outlet />
+      </div>
+    </UserContext.Provider>
   );
 };
 

@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import UserContext from "../utils/UserContext";
 // anchor tag reload the whole page but not React Link tag(SPA)
 
 /*
@@ -16,6 +17,9 @@ server side routing
 
 const Header = () => {
   const [isLogin, setIsLogin] = useState(false);
+
+  const data = useContext(UserContext);
+  console.log("Data is ", data);
   return (
     <div className="flex justify-between m-2 shadow-sm lg:bg-slate-300 sm:bg-neutral-500 bg-pink-400">
       <div className="logo-container">
@@ -46,6 +50,9 @@ const Header = () => {
           >
             {isLogin ? "Logout" : "Login"}
           </button>
+          <li className="px-4 bg-black rounded text-white p-2">
+            {data.loggedInUser}
+          </li>
         </ul>
       </div>
     </div>
