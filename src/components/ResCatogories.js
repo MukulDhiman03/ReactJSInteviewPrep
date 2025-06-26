@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import ItemList from "./ItemList";
 
 const ResCatogories = ({ data, showItemList, setShowIndex }) => {
-  const handleClick = () => {
-    setShowIndex();
-  };
+  const handleClick=()=>{
+    setShowIndex()
+  }
   return (
     <div>
       <div className=" bg-gray-50 w-6/12 shadow-lg  mx-auto my-4 p-4 ">

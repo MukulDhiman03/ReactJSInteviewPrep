@@ -465,3 +465,18 @@ When we use Selector is known as subscribing to the store.
 - selector
 
 Redux-toolkit uses immer.js behind the scene
+
+# Ep-13 Time for test
+
+- RTL(React Testing Library)
+
+## Setting up testing
+
+    - install RTL and Jest
+    - install babel dependencies for jest
+    - configure babel.config.js
+    - configure parcel config file to disable default babel transpilation
+    - jest configuration(npx create-jest)
+    - we will be using jsdom(browser-like)
+    - npm install --save-dev jest-environment-jsdom
+    - npm i -D @testing-library/jest-dom
