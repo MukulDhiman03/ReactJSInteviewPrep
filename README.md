@@ -431,7 +431,7 @@ const About = lazy(() => import("./components/About"));
 
 ```
 
-# Ep-10 Data is the new oil
+# Ep-11 Data is the new oil
 
 ## Higher order component
 
@@ -443,3 +443,25 @@ Controlled component-> if the states are controlled by parent component(via prop
 Unontrolled component-> if the states are controlled by component only then the component is controlled component.
 
 Difference between redux and context api.
+
+# Ep-12 Let's build our store
+
+Redux store is like a big object(central place) and any component can access it.
+
+We have slices in the redux store, slice is like a small portion of redux store.
+
+example-> cartSlice , userSlice
+
+We cannot directly modify the slice , we need to dispatch an action,it will call a function(reducer) that function will modify the cart(slice of the redux store).
+
+Selector will be used to take the data from slice and render it to the UI.
+
+When we use Selector is known as subscribing to the store.
+
+- Build a store
+- Connect our store to app
+- create slice(cartSlice)
+- dispatch action
+- selector
+
+Redux-toolkit uses immer.js behind the scene
